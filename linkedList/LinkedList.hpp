@@ -29,9 +29,6 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	/** TODO
-		Fix this method
-	*/
 	Node<T>* temp = m_front;
 	if(m_front == nullptr){
 		return 0;
@@ -51,10 +48,6 @@ bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
 	bool isFound = false;
-
-	/** TODO
-		Fix this method
-	*/
 	if(temp == nullptr){
 		return false;
 	}
@@ -122,12 +115,24 @@ bool LinkedList<T>::removeBack()
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
-
-	/** TODO
-		Fix this method
-	*/
-
-	return(isRemoved);
+	if(m_front == nullptr){
+		return false;
+	}
+	if(m_front->getNext() == nullptr){
+		delete m_front;
+		m_size = m_size - 1;
+		m_front = nullptr;
+		return true;
+	}
+	secondintoLast = m_front;
+	while(secondintoLast->getNext()->getNext() != nullptr){
+		secondintoLast = secondintoLast->getNext();
+	}
+	lastNode = secondintoLast->getNext();
+	delete lastNode;
+	secondintoLast->setNext(nullptr);
+	m_size = m_size - 1;
+	return(true);
 }
 
 template <typename T>
