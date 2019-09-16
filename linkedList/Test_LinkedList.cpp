@@ -10,7 +10,7 @@
 
 void Test_LinkedList::runTests()
 {
-	
+
 	int score = 0;
 	const int MAX_SCORE = 100;
 
@@ -19,25 +19,25 @@ void Test_LinkedList::runTests()
 	std::cerr << "=========================\n\n";
 
 	//Run test and award points where appropriate
-	score += test1() ? 2 : 0; 
-	score += test2() ? 2 : 0; 
-	score += test3() ? 3 : 0; 
-	score += test4() ? 5 : 0; 
-	score += test5() ? 5 : 0; 
-	score += test6() ? 5 : 0; 
-	score += test7() ? 5 : 0; 
+	score += test1() ? 2 : 0;
+	score += test2() ? 2 : 0;
+	score += test3() ? 3 : 0;
+	score += test4() ? 5 : 0;
+	score += test5() ? 5 : 0;
+	score += test6() ? 5 : 0;
+	score += test7() ? 5 : 0;
 	score += test8() ? 2 : 0; 
-	score += test9() ? 5 : 0; 	
-	score += test10() ? 5 : 0; 
-	score += test11() ? 2 : 0; 
-	score += test12() ? 5 : 0; 
-	score += test13() ? 2 : 0; 
-	score += test14() ? 2 : 0; 
-	score += test15() ? 5 : 0; 
-	score += test16() ? 20 : 0; 
-	score += test17() ? 5 : 0; 
-	score += test18() ? 20 : 0; 
-	
+	score += test9() ? 5 : 0;
+	score += test10() ? 5 : 0;
+	score += test11() ? 2 : 0;
+	score += test12() ? 5 : 0;
+	score += test13() ? 2 : 0;
+	score += test14() ? 2 : 0;
+	score += test15() ? 5 : 0;
+	score += test16() ? 20 : 0;
+	score += test17() ? 5 : 0;
+	score += test18() ? 20 : 0;
+
 	std::cerr << "Score: " << score << " / " << MAX_SCORE << std::endl;
 }
 
@@ -49,8 +49,8 @@ Test_LinkedList::Test_LinkedList(int testSize) : Test(testSize)
 void Test_LinkedList::loadList(const std::vector<int>& testValues, LinkedList<int>& list) const
 {
 	for(std::size_t i=0; i<testValues.size(); i++)
-	{	
-		list.addBack( testValues[i] );	
+	{
+		list.addBack( testValues[i] );
 	}
 }
 
@@ -59,7 +59,7 @@ bool Test_LinkedList::test1()
 	LinkedList<int> list;
 	bool isPassed = false;
 
-	printTestMessage("size of empty list is zero"); 
+	printTestMessage("size of empty list is zero");
 
 	isPassed = list.size() == 0;
 	printPassFail(isPassed);
@@ -71,7 +71,7 @@ bool Test_LinkedList::test1()
 bool Test_LinkedList::test2()
 {
 	LinkedList<int> list;
-	bool isPassed = false; 
+	bool isPassed = false;
 
 	list.addFront(1);
 
@@ -94,11 +94,11 @@ bool Test_LinkedList::test3()
 	printTestMessage("size returns correct value after 1 addBack");
 
 	list.addBack(5);
-	
+
 	isPassed = list.size() == 1;
-	
+
 	printPassFail(isPassed);
-	return(isPassed);	
+	return(isPassed);
 }
 
 
@@ -114,7 +114,7 @@ bool Test_LinkedList::test4()
 	std::cerr << std::endl;
 	for(int i=0; i<TEST_SIZE; i++)
 	{
-		std::cerr << '\r' << "\tAdding " << (i+1) << "/" << TEST_SIZE << " nodes "; 
+		std::cerr << '\r' << "\tAdding " << (i+1) << "/" << TEST_SIZE << " nodes ";
 		list.addFront(i);
 		std::cerr.flush();
 	}
@@ -122,7 +122,7 @@ bool Test_LinkedList::test4()
 	isPassed = list.size() == TEST_SIZE;
 
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 
@@ -136,16 +136,16 @@ bool Test_LinkedList::test5()
 	std::cerr << std::endl;
 	for(int i=0; i<TEST_SIZE; i++)
 	{
-		std::cerr << '\r' << "\tAdding " << (i+1) << "/" << TEST_SIZE << " nodes "; 
+		std::cerr << '\r' << "\tAdding " << (i+1) << "/" << TEST_SIZE << " nodes ";
 		vec.push_back(i);
 		std::cerr.flush();
 	}
-	
+
 	loadList(vec, list);
-	
+
 	isPassed = list.size() == TEST_SIZE;
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 
@@ -153,7 +153,7 @@ bool Test_LinkedList::test6()
 {
 	LinkedList<int> list;
 	int trackedSize = 0;
-	bool isPassed=false;	
+	bool isPassed=false;
 
 	printTestMessage("size returns correct value after adds and removeFront");
 
@@ -163,7 +163,7 @@ bool Test_LinkedList::test6()
 		if(i%2 == 0)
 		{
 			list.addBack(i);
-			trackedSize++;	
+			trackedSize++;
 		}
 		else if(i%3 == 0)
 		{
@@ -179,14 +179,14 @@ bool Test_LinkedList::test6()
 
 	isPassed = list.size() == trackedSize;
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test7()
 {
 	LinkedList<int> list;
 	int trackedSize = 0;
-	bool isPassed=false;	
+	bool isPassed=false;
 
 	printTestMessage("size returns correct value after adds and removeBack");
 
@@ -196,7 +196,7 @@ bool Test_LinkedList::test7()
 		if(i%2 == 0)
 		{
 			list.addBack(i);
-			trackedSize++;	
+			trackedSize++;
 		}
 		else if(i%3 == 0)
 		{
@@ -209,22 +209,22 @@ bool Test_LinkedList::test7()
 			trackedSize++;
 		}
 	}
-	
+
 	isPassed = list.size() == trackedSize;
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test8()
 {
 	LinkedList<int> list;
 	bool isPassed = false;
-	
+
 	printTestMessage("search returns false on empty list");
 
 	isPassed = !list.search(42);
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test9()
@@ -243,7 +243,7 @@ bool Test_LinkedList::test9()
 	//search for value not in list
 	isPassed = !list.search(-1);
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 
@@ -258,9 +258,9 @@ bool Test_LinkedList::test10()
 	for(int i=0; i<TEST_SIZE; i++)
 	{
 		std::cerr << '\r' << "\tAdding " << (i+1) << "/" << TEST_SIZE << " nodes ";
-		
+
 		//Add every other node using addBack
-		if( i%2 == 0) 
+		if( i%2 == 0)
 		{
 			list.addBack(i);
 		}
@@ -273,11 +273,11 @@ bool Test_LinkedList::test10()
 	}
 
 	std::cerr << std::endl;
-	//Search for all added values. Set flag if any value is not found 
+	//Search for all added values. Set flag if any value is not found
 	for(int i=0; i<TEST_SIZE && isPassed; i++)
 	{
-		std::cerr << '\r' << "\tSearching " << (i+1) << "/" << TEST_SIZE << " nodes "; 
-		if( !list.search(i) ) 
+		std::cerr << '\r' << "\tSearching " << (i+1) << "/" << TEST_SIZE << " nodes ";
+		if( !list.search(i) )
 		{
 			isPassed = false;
 			std::cerr << "Search returned false for value: " << i << std::endl;
@@ -286,7 +286,7 @@ bool Test_LinkedList::test10()
 	}
 
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test11()
@@ -296,11 +296,11 @@ bool Test_LinkedList::test11()
 	std::vector<int> vec;
 
 	printTestMessage("toVector returns empty vector for empty list");
-	
+
 	vec = list.toVector();
 	isPassed = vec.empty();
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test12()
@@ -309,7 +309,7 @@ bool Test_LinkedList::test12()
 	bool isPassed = true;
 	std::vector<int> key;
 	std::vector<int> test;
-	
+
 
 	printTestMessage("toVector creates vector with the contents of large list");
 
@@ -326,7 +326,7 @@ bool Test_LinkedList::test12()
 	}
 
 	test = list.toVector();
-	
+
 	isPassed = test == key;
 
 	if(!isPassed)
@@ -337,9 +337,9 @@ bool Test_LinkedList::test12()
 		std::cerr << "vector produced by LinkedList class: " << std::endl;
 		printVector(test);
 	}
-	
+
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test13()
@@ -351,7 +351,7 @@ bool Test_LinkedList::test13()
 
 	isPassed = !list.removeFront();
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 
@@ -364,7 +364,7 @@ bool Test_LinkedList::test14()
 
 	isPassed = !list.removeBack();
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test15()
@@ -394,7 +394,7 @@ bool Test_LinkedList::test15()
 
 	isPassed = trackedSize == list.size();
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 
@@ -425,7 +425,7 @@ bool Test_LinkedList::test16()
 
 	isPassed = trackedSize == list.size();
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
 
 bool Test_LinkedList::test17()
@@ -434,7 +434,7 @@ bool Test_LinkedList::test17()
 	bool isPassed = true;
 	std::vector<int> key;
 	std::vector<int> test;
-	
+
 
 	printTestMessage("order preserved by removeFront on populated list");
 
@@ -457,7 +457,7 @@ bool Test_LinkedList::test17()
 
 	test = list.toVector();
 	isPassed = key == test;
-	
+
 	if(!isPassed)
 	{
 		std::cerr << "ERROR: expected the following vector: " << std::endl;
@@ -468,8 +468,8 @@ bool Test_LinkedList::test17()
 	}
 
 	printPassFail(isPassed);
-	return (isPassed); 
-} 
+	return (isPassed);
+}
 bool Test_LinkedList::test18()
 {
 	LinkedList<int> list;
@@ -509,6 +509,5 @@ bool Test_LinkedList::test18()
 	}
 
 	printPassFail(isPassed);
-	return (isPassed); 
+	return (isPassed);
 }
-
